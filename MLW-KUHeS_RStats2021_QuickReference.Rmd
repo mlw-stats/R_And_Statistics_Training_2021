@@ -816,6 +816,26 @@ ggplot(data=dat,mapping=aes(x=x2)) +
 ```
 
 
+You can change the coordinate system to get a circular plot (note, use these carefully - most often they are NOT a good idea).
+
+For this you can use `coord_polar()`.
+
+To get annotations for each bar, requires a bit more work (but see the [R Graph Gallery](https://www.r-graph-gallery.com/circular-barplot.html) for examples).
+
+
+```{r}
+ggplot(data=dat,mapping=aes(x=x2)) +
+  geom_bar() + coord_polar(start=0) + theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    plot.margin = unit(rep(-2,4), "cm") # removing unnecessary margins
+  ) +
+  ylim(-100,250) # dtermines size of the inner radius
+```
+
+
 ### Distribution: pie charts
 
 In `ggplot2`, pie charts are just bar charts with a special (polar) coordinate system.

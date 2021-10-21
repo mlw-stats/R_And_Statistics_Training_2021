@@ -139,6 +139,12 @@ write.csv(iris,file="dataAndSupportDocs/iris.csv",row.names=FALSE) # saves the d
 
 Check on your hard drive, you will now have a file named `iris.csv` (inside a directory named `dataAndSupportDocs`) which you can open with a text editor, Excel, ...
 
+If you want a bit more control over how the file is written (e.g. different column separator, whether or not to include row and/or column names), you can use the more general `write.table()` function.
+
+```{r}
+write.table(iris,file="dataAndSupportDocs/iris.tab",sep="\t",row.names=FALSE) # tab separated
+```
+
 ### Reading data from disk
 
 Let's suppose now that this file is our dataset and we want to load it into R so that we can work with it. We need to read the content into memory (RAM) and assign it to an object in R that we can then manipulate or feed into different functions for analysis or visualisation. For this we use the function `read.csv()` and the assignment operator `<-`.
